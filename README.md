@@ -51,3 +51,7 @@ Visual Studio noob!
 # Odin Version
 
 See [Odin Vulkan Sprite Renderer](https://github.com/stevelittlefish/odin_vulkan_sprite_renderer) for an implementation of this project in the Odin programming language.
+
+# Screenshot
+
+![Screenshot](https://raw.githubusercontent.com/stevelittlefish/odin_vulkan_sprite_renderer/refs/heads/main/screenshot.png)
