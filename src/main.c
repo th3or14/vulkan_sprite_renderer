@@ -536,7 +536,6 @@ void init_vulkan(void) {
 		ds_alloc_info.descriptorSetCount = VKX_FRAMES_IN_FLIGHT;
 		ds_alloc_info.pSetLayouts = ds_layouts;
 		
-		// Create the base descriptor sets
 		if (vkAllocateDescriptorSets(vkx_instance.device, &ds_alloc_info, descriptor_sets) != VK_SUCCESS) {
 			fprintf(stderr, "failed to allocate descriptor sets!\n");
 			exit(1);
@@ -595,7 +594,6 @@ void init_vulkan(void) {
 		ds_alloc_info.descriptorSetCount = VKX_FRAMES_IN_FLIGHT;
 		ds_alloc_info.pSetLayouts = ds_layouts;
 		
-		// Create the base descriptor sets
 		if (vkAllocateDescriptorSets(vkx_instance.device, &ds_alloc_info, screen_descriptor_sets) != VK_SUCCESS) {
 			fprintf(stderr, "failed to allocate screen descriptor sets!\n");
 			exit(1);
