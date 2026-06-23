@@ -1313,6 +1313,7 @@ int main(void) {
 						SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
 						fullscreen = true;
 					}
+					SDL_SyncWindow(window);
 					framebuffer_resized = true;
 				}
 			}
