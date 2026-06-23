@@ -478,7 +478,7 @@ void init_vulkan(void) {
 			VK_IMAGE_ASPECT_COLOR_BIT
 		);
 
-		// transition the image layout to color attachment optimal
+		// transition the image layout to shader read
 		vkx_transition_image_layout_tmp_buffer(
 			offscreen_images[i].image,
 			vkx_swap_chain.image_format,
@@ -680,7 +680,7 @@ void record_command_buffer(VkCommandBuffer command_buffer, uint32_t image_index)
 		VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL
 	);
 
-	// Memory barrier to transition the offscreen image from color attachment to shader read
+	// Memory barrier to transition the offscreen image from shader read to color attachment
 	vkx_transition_image_layout(
 		command_buffer,
 		offscreen_images[current_frame].image,
@@ -799,7 +799,7 @@ void record_command_buffer(VkCommandBuffer command_buffer, uint32_t image_index)
 
 	vkCmdEndRendering(command_buffer);
 
-	// Memory barrier to transition the offscreen image from shader read to color attachment
+	// Memory barrier to transition the offscreen image from color attachment to shader read
 	vkx_transition_image_layout(
 		command_buffer,
 		offscreen_images[current_frame].image,
@@ -836,7 +836,7 @@ void record_command_buffer(VkCommandBuffer command_buffer, uint32_t image_index)
 	// --- End dynamic rendering ----------------------------------------------
 	vkCmdEndRendering(command_buffer);
 	
-	// Memory barrier to transition the swap chain image from color attachment to present
+	// Memory barrier to transition the swap chain image from color attachment to present source
 	vkx_transition_image_layout(
 		command_buffer,
 		vkx_swap_chain.images[image_index],
